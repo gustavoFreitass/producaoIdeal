@@ -2,52 +2,49 @@ package application;
 
 import java.util.Scanner;
 
+import entities.Cadeira;
+import entities.Mesa;
+
 public class Program {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int quantiTabuaCadeira, quantiTabuaMesa, quantiTempoCadeira, quantiTempoMesa, totalDeTabuas, totalDeHoras;
+		String[] linha = new String[3];
+		int tabuas, horas, totalHoras, totalTabuas;
+		double valorProduto;
 		
-		//solicitar ao usuário informações necessárias para identificar as condições necessárias tanto para a tomada de decisão, quanto para saber as restrições.
-		System.out.print("Informe a quantidade de tábuas que uma cadeira consome: ");
-		quantiTabuaCadeira = sc.nextInt();
-		System.out.print("Informe a quantidade de tábuas que uma mesa consome: ");
-		quantiTabuaMesa = sc.nextInt();
-		System.out.print("Informe a quantidade de horas que uma cadeira consome: ");
-		quantiTempoCadeira = sc.nextInt();
-		System.out.print("Informe a quantidade de horas que uma mesa consome: ");
-		quantiTempoMesa = sc.nextInt();
-		System.out.print("Informe a quantidade total de tábuas disponíveis: ");
-		totalDeTabuas = sc.nextInt(); 
-		System.out.print("Informe a quantidade total de horas disponíveis: ");
-		totalDeHoras = sc.nextInt();
+		//Usuário definir os valores de cada condição
+		System.out.print("Informe a quantidade de tábuas, horas e o valor de venda de um(a) mesa: ");
+		linha = sc.nextLine().split(" ");
+		tabuas = Integer.parseInt(linha[0]);
+		horas = Integer.parseInt(linha[1]);
+		valorProduto = Double.parseDouble(linha[2]);
+		Mesa mesa = new Mesa(tabuas, horas, valorProduto);
 		
-		//processo de colocar as váriaveis em um sistema linear para descobrir a quantidade ideal de cada produto.
-		double[][]coefficients = {
-                {quantiTabuaCadeira, quantiTabuaMesa},
-                {quantiTempoCadeira, quantiTempoMesa}
-        };
-		double[]constants = {
-			 totalDeTabuas,
-			 totalDeHoras
-		};
-		double y =  (constants[1] - (coefficients[1][0] / coefficients[0][0]) * constants[0]) /
-				(coefficients[1][1] - (coefficients[1][0] / coefficients[0][0]) * coefficients[0][1]);
+		System.out.print("Informe a quantidade de tábuas, horas e o valor de venda de um(a) cadeira: ");
+		linha = sc.nextLine().split(" ");
+		tabuas = Integer.parseInt(linha[0]);
+		horas = Integer.parseInt(linha[1]);
+		valorProduto = Double.parseDouble(linha[2]);
+		Cadeira cadeira = new Cadeira(tabuas, horas, valorProduto);
 		
-		double x = (constants[0] - coefficients[0][1] * y) / coefficients[0][0];
+		System.out.print("Informe a quantidade de tabuas disponíveis: ");
+		totalTabuas = sc.nextInt();
+		System.out.print("Informe a quantidade de Horas disponíveis: ");
+		totalHoras = sc.nextInt();
 		
+		//Definir quais são os valores das variáveis
+		double qtdCadeira = cadeira.getValorIdeal(totalTabuas, totalHoras, mesa);
+		mesa.setCadeira(qtdCadeira);
+		double qtdMesa = mesa.getValorIdeal(totalTabuas, totalHoras, cadeira);
 		
-		System.out.println("Quantidade ideal de cada produto:");
-        System.out.println("mesa = " + x);
-        System.out.println("cadeira = " + y);
+		double lucro = cadeira.getValorProduto() * qtdMesa + mesa.getValorProduto() * qtdCadeira;
 		
-        //processo para saber quais serão os lucros caso a produção ideal se concretize.
-        System.out.print("\nDigite o valor de venda de cada cadeira: ");
-        double valorDeVendaCadeira = sc.nextDouble();
-        System.out.print("Digite o valor de venda de cada mesa: ");
-		double valorDeVendaMesa = sc.nextDouble();
-		double lucro = valorDeVendaCadeira*x + valorDeVendaMesa*y;
-		System.out.printf("O lucro que se terá ao produzir a quantidade ideal de cadeiras e mesas é R$: %.2f", lucro);
+		//Retornar valores para o usuário
+		System.out.println("\nO valor ideal de produtos é: ");
+		System.out.println("Cadeira = " + qtdCadeira);
+		System.out.println("Mesa = " + qtdMesa);
+		System.out.printf("O lucro da produção ideal é R$%.2f\n", lucro);
 		
 		sc.close();
 
