@@ -5,7 +5,7 @@ Programa feito para resolver o problema de produção ideal de uma empresa de ca
 <br></br>
 
 <h1>🚀 Começando</h1>
-Para começar é preciso clonar o repositório em seu computar.
+Para começar é preciso clonar o repositório em seu computador.
 <br></br>
 
 
