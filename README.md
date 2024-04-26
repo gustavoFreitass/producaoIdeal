@@ -25,7 +25,7 @@ Antes de usar o projeto, é necessário instalar o Java Virtual Machine (JVM).
   Basta abrir a pasta src dentro do diretório escolhido e executar com sua IDE(recomendação: Eclipse IDE), logo após é só executar e informar os valores solicitados.
 O programa possui uma particularidade, não se precisa clicar <code>enter</code> para adicionar os 3 valores solicitados, apenas clicando <code>espaço</code> pode-se informar 
 os três valores na mesma linha, logo após ser informado é necessário clicar <code>enter</code> para se informar os valores da próxima situação. No momento que o código solicitar 
-apenas uma informação, devará ser informado apenas a informação solicitada e logo após clicar <code>enter</code> para que se possa informa o restante das informações.
+apenas uma informação, devalerá ser informado apenas a informação solicitada e logo após clicar <code>enter</code> para que se possa informa o restante das informações.
 </p>
 
 <br></br>
