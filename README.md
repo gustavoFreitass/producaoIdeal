@@ -1,7 +1,6 @@
 <h1>📚 Produção Ideal</h1>
 Programa feito para resolver o problema de produção ideal de uma empresa de cadeiras e mesas, levando em consideração as restrições 
-(quantidades limitadas de tábuas e horas para a produção) existentes, demonstrando qual a melhor tomada de decisão a ser seguida e s
-olicitando qual o valor de venda de cada produto, demonstrando no final a quantidade de mesas e cadeira que devem ser produzidas e qual o lucro de adotar essa produção ideal.
+(quantidades limitadas de tábuas e horas para a produção) existentes, demonstrando qual a melhor tomada de decisão a ser seguida e solicitando qual o valor de venda de cada produto, demonstrando no final a quantidade de mesas e cadeira que devem ser produzidas e qual o lucro de adotar essa produção ideal.
 
 <br></br>
 
